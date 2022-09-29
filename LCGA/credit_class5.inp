@@ -1,0 +1,23 @@
+TITLE: CREDIT ANALYSIS
+DATA: FILE = credit.dat;
+VARIABLE: NAMES = id, usage4, usage5, usage6, usage7, usage8, usage9;
+USEVAR = usage4 usage5 usage6 usage7 usage8 usage9;
+IDVARIABLE = id;
+CLASSES = c(5);
+MISSING = ALL(999)
+
+SAVEDATA: FILE IS C:\Users\Feng\Documents\Take home test\LCGA\usage_class_5.tsv;
+save = cprobabilities;
+
+Analysis: type = MIXTURE;
+STARTS = 100 25;
+STITERATIONS = 20;
+LRTBOOTSTRAP = 100;
+LRTSTARTS = 0 0 100 25;
+Model: %OVERALL%
+eta0 eta1 eta2| usage4@0 usage5@1, usage6@2, usage7@3, usage8@4, usage9@5;
+eta0-eta2@0;
+Output: sampstat standardized tech1
+TECH8 TECH11 TECH14;
+PLOT: SERIES = usage4 usage5 usage6 usage7 usage8 usage9(*);
+TYPE = PLOT3;
