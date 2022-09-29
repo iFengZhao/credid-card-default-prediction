@@ -1,4 +1,4 @@
-# credid-card_default-prediction
+# Credid Card Default Prediction
 Take home project for Credit Sesame
 
 The Jupyter notebook in the repo documents how I built a predictive model to predict credit default using the data from https://archive-beta.ics.uci.edu/ml/datasets/default+of+credit+card+clients#Descriptive.
